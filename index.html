@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="cn">
+      <div class="welcome">
+        <div class="welcome-hover">
+          <h1 id="t">Welcome to Personal library</h1>
+        </div>
+        <div class=".txt">
+          <div id="lgn">
+            <div class="bg-info">
+              <div class="container p-2">
+                <h2>Personal Library</h2>
+              </div>
+            </div>
+            <div id="ig">
+              <div class="crd">
+                <div class="card w-25 mt-5 mx-auto">
+                  <div class="card-header bg-primary">Login here</div>
+                  <div class="card-body">
+                    Username:
+                    <input type="text" class="form-control" name="un" id="un" />
+                    Password:
+                    <input
+                      type="password"
+                      class="form-control"
+                      name="pwd"
+                      id="pwd"
+                    />
+                  </div>
+                  <div class="card-footer">
+                    <button class="btn btn-primary float-end" onclick="login()">
+                      Login
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="cnt">
+      <header class="bg-info rounded-top-3">
+        <div class="container">
+          <div class="row p-3">
+            <div class="col-sm-4">
+              <h2>Personal Library</h2>
+            </div>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+              <ul class="nav nav-tabs nav-fill">
+                <li class="nav-item">
+                  <a
+                    href="#home"
+                    data-bs-toggle="tab"
+                    class="nav-link text-dark active"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    href="#books"
+                    data-bs-toggle="tab"
+                    class="nav-link text-dark"
+                    >Books</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    href="#about"
+                    data-bs-toggle="tab"
+                    class="nav-link text-dark"
+                    >About</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="c1">
+        <div class="container">
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item active text-white">Home</li>
+              </ol>
+              <div class="row mt-2">
+                <div class="col-sm-4">
+                  <div class="card">
+                    <div class="card-header">
+                      Get Total number of Books published before
+                    </div>
+                    <div class="card-body">
+                      Enter Year
+                      <input
+                        type="text"
+                        name="getbookyear"
+                        class="form-control"
+                        id="getbookyear"
+                      />
+                    </div>
+                    <div class="card-footer">
+                      <button
+                        onclick="getTotalBooksPublishedBefore()"
+                        class="btn btn-primary w-100"
+                      >
+                        GET
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="card">
+                    <div class="card-header">Get Books By Author name</div>
+                    <div class="card-body">
+                      Enter Author Name
+                      <input
+                        type="text"
+                        name="getbook"
+                        class="form-control"
+                        id="getbook"
+                      />
+                    </div>
+                    <div class="card-footer">
+                      <button
+                        onclick="getBooksByAuthor()"
+                        class="btn btn-primary w-100"
+                      >
+                        GET
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="card">
+                    <div class="card-header">Get Book By Read Status</div>
+                    <div class="card-body">
+                      Enter Read status
+                      <input
+                        type="text"
+                        name="getbookstatus"
+                        class="form-control"
+                        id="getbookstatus"
+                      />
+                    </div>
+                    <div class="card-footer">
+                      <button
+                        onclick="getBooksByReadStatus()"
+                        class="btn btn-primary w-100"
+                      >
+                        GET
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-sm-4">
+                  <div class="card">
+                    <div class="card-header">Remove Last Book from Library</div>
+                    <div class="card-body">
+                      <button
+                        onclick="removeLastBook()"
+                        class="btn btn-primary w-100"
+                      >
+                        REMOVE
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="card">
+                    <div class="card-header">
+                      Remove First Book from the Library
+                    </div>
+                    <div class="card-body">
+                      <button
+                        onclick="removeFirstBook()"
+                        class="btn btn-primary w-100"
+                      >
+                        REMOVE
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="card">
+                    <div class="card-header">
+                      Get the Tilte of books avilable in Library
+                    </div>
+                    <div class="card-body">
+                      <button
+                        onclick="getAllTitles()"
+                        class="btn btn-primary w-100"
+                      >
+                        GET
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-2 mb-2">
+                <div class="col-sm-4">
+                  <div class="card">
+                    <div class="card-header">
+                      Get Sub Library from the library
+                    </div>
+                    <div class="card-body">
+                      Starting index
+                      <input
+                        type="text"
+                        name="start"
+                        class="form-control"
+                        id="start"
+                      />
+                      Ending Index
+                      <input
+                        type="text"
+                        name="end"
+                        class="form-control"
+                        id="end"
+                      />
+                      <button
+                        onclick="getSubLibrary()"
+                        class="btn btn-primary w-100"
+                      >
+                        GET
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="card">
+                    <div class="card-header">Add Book to the Front</div>
+                    <div class="card-body">
+                      Enter Book Name
+                      <input
+                        type="text"
+                        name="addbooktitle"
+                        class="form-control"
+                        id="addbooktitle"
+                      />
+                      Enter Author Name
+                      <input
+                        type="text"
+                        name="addbooktitle"
+                        class="form-control"
+                        id="addauthor"
+                      />
+                      Enter the published year
+                      <input
+                        type="number"
+                        name="addbooktitle"
+                        class="form-control"
+                        id="addstatus"
+                      />
+                    </div>
+                    <div class="card-footer">
+                      <button
+                        onclick="addBookToFront()"
+                        class="btn btn-primary w-100"
+                      >
+                        ADD
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="card">
+                    <div class="card-header">
+                      Remove Book By title from the Library
+                    </div>
+                    <div class="card-body">
+                      Enter Title
+                      <input
+                        type="text"
+                        name="rmtitle"
+                        class="form-control"
+                        id="rmtitle"
+                      />
+                    </div>
+                    <div class="card-footer">
+                      <button
+                        onclick="removeBookByTitle()"
+                        class="btn btn-primary w-100"
+                      >
+                        REMOVE
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="books" role="tabpanel">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item text-white">Home</li>
+                <li class="breadcrumb-item text-white active">Books</li>
+              </ol>
+              <div id="bk"></div>
+            </div>
+            <div class="tab-pane fade" id="about" role="tabpanel">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item text-white">Home</li>
+                <li class="breadcrumb-item text-white active">About</li>
+              </ol>
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-text">
+                    My journey with books began at a young age when I was
+                    introduced to the magical world of stories. From fairy tales
+                    that ignited my imagination to mysteries that kept me up all
+                    night, books have been a constant source of joy and
+                    inspiration. Over the years, I have explored various genres,
+                    delving into classics, science fiction, fantasy, history,
+                    and more. Each book has left an indelible mark on my soul,
+                    shaping my perspectives and enriching my life.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <p class="text-dark text-center footer">
+          &copy; Copyright 2023.All Rights Reserved.
+        </p>
+      </footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
